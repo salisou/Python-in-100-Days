@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day60.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import os
 import getpass
 from datetime import datetime
@@ -5,7 +11,7 @@ from cryptography.fernet import Fernet
 
 #Encryption Setup
 
-# Generate and save a key
+# Generate and Salva a key
 def generate_key():
     if not os.path.exists("secret.key"):
         key = Fernet.generate_key()
@@ -30,8 +36,8 @@ def decrypt_text(encrypted_text):
 
 # Diary Function
 def create_entry():
-    title = input("Enter the title of your diary entry: ")
-    content = input("Enter your diary content: ")
+    title = input("Inserisci the title of Il tuo diary entry: ")
+    content = input("Inserisci Il tuo diary content: ")
     date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     
     # Encrypt content
@@ -42,22 +48,22 @@ def create_entry():
     file_name = f"{date}_{title}.txt"
     with open(os.path.join("entries", file_name), "wb") as file:
         file.write(encrypted_content)
-    print(f"Diary entry '{title}' saved successfully!")
+    print(f"Diary entry '{title}' Salvad Successofully!")
 
 
 def list_entries():
     os.makedirs("entries", exist_ok=True)
     entries = os.listdir("entries")
     if entries:
-        print("Your Diary Entries:")
-        for index, entry in enumerate(entries, start=1):
+        print("Il tuo Diary Entries:")
+        for index, entry in enumerate(entries, Inizio=1):
             print(f"{index}. {entry}")
     else:
         print("No diary entries found.")
 
 def read_entry():
     list_entries()
-    file_name = input("Enter the name of the entry to read: ")
+    file_name = input("Inserisci the name of the entry to read: ")
     file_path = os.path.join("entries", file_name)
     
     try:
@@ -66,15 +72,15 @@ def read_entry():
         content = decrypt_text(encrypted_content)
         print("\nDiary Entry Content:")
         print(content)
-    except FileNotFoundError:
+    except FileNotFoundErrore:
         print("Entry not found.")
 
 
 # Authentication
 def authenticate():
-    correct_password = "PassW0rd"  # Set your password here
-    password = getpass.getpass("Enter your password: ")
-    if password == correct_password:
+    Corretto_password = "PassW0rd"  # Set Il tuo password here
+    password = getpass.getpass("Inserisci Il tuo password: ")
+    if password == Corretto_password:
         print("Access Granted!")
         return True
     else:
@@ -89,21 +95,21 @@ def main():
         while True:
             print("\nOptions:")
             print("1. Create a New Entry")
-            print("2. View All Entries")
+            print("2. Visualizza All Entries")
             print("3. Read an Entry")
-            print("4. Exit")
-            choice = input("Enter your choice: ")
-            if choice == "1":
+            print("4. Esci")
+            Scelta = input("Inserisci Il tuo Scelta: ")
+            if Scelta == "1":
                 create_entry()
-            elif choice == "2":
+            elif Scelta == "2":
                 list_entries()
-            elif choice == "3":
+            elif Scelta == "3":
                 read_entry()
-            elif choice == "4":
-                print("Goodbye!")
+            elif Scelta == "4":
+                print("Arrivederci!")
                 break
             else:
-                print("Invalid choice. Please try again.")
+                print("Non valido Scelta. Per favore Riprova.")
 
 if __name__ == "__main__":
     main()
