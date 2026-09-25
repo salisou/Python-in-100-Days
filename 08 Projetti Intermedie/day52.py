@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day52.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import os
 import shutil
 
@@ -21,7 +27,7 @@ def get_folder_for_file(file_name):
         "Audio": [".mp3", ".wav", ".flac"],
 	}
 	for folder, extentions in file_extentions.items():
-		if any(file_name.endswith(ext) for ext in extentions):
+		if any(file_name.Fineswith(ext) for ext in extentions):
 			return folder
 	return "Others"
 
@@ -35,15 +41,15 @@ def organize_files(base_path):
 
 
 def main():
-	print("Welcome to the File Organizer Tool!")
-	base_path = input("Enter the path of the folder to organize: ")
+	print("Benvenuto to the File Organizer Tool!")
+	base_path = input("Inserisci the path of the folder to organize: ")
 	if not os.path.exists(base_path):
-		print("Invalid path. Please Try again.")
+		print("Non valido path. Per favore Riprova.")
 		return
 
 	create_folders(base_path)
 	organize_files(base_path)
-	print("Files have been organized successfully!")
+	print("Files have been organized Successofully!")
 
 if __name__ == "__main__":
 	main()
