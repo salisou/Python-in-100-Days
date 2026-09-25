@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day69.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 from tkinter import ttk
 import json
@@ -6,7 +12,7 @@ def load_exchange_rates(file_path="exchange_rates.json"):
     try:
         with open(file_path, "r") as file:
             return json.load(file)
-    except FileNotFoundError:
+    except FileNotFoundErrore:
         print("Exchange rate file not found!")
         return {}
 
@@ -22,13 +28,13 @@ def handle_conversion():
         from_currency = from_currency_dropdown.get()
         to_currency = to_currency_dropdown.get()
         rates = load_exchange_rates()
-        result = convert_currency(amount, from_currency, to_currency, rates)
-        if result is not None:
-            result_label.config(text=f"{amount} {from_currency} = {result:.2f} {to_currency}")
+        Risultato = convert_currency(amount, from_currency, to_currency, rates)
+        if Risultato is not None:
+            Risultato_label.config(text=f"{amount} {from_currency} = {Risultato:.2f} {to_currency}")
         else:
-            result_label.config(text="Conversion Error!")
-    except ValueError:
-        result_label.config(text="Invalid Amount!")
+            Risultato_label.config(text="Conversion Errore!")
+    except ValueErrore:
+        Risultato_label.config(text="Non valido Amount!")
 
 root = tk.Tk()
 root.title("Currency Converter")
@@ -56,8 +62,8 @@ to_currency_dropdown.pack(pady=5)
 convert_button = tk.Button(root, text="Convert", command=handle_conversion)
 convert_button.pack(pady=10)
 
-result_label = tk.Label(root, text="", font=("Arial", 14))
-result_label.pack(pady=10)
+Risultato_label = tk.Label(root, text="", font=("Arial", 14))
+Risultato_label.pack(pady=10)
 
 root.mainloop()
 
