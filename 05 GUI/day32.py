@@ -1,5 +1,11 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day32.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
-from tkinter import colorchooser
+from tkinter import colorSceglir
 
 # Main Window
 root = tk.Tk()
@@ -26,12 +32,12 @@ def draw(event):
 
 # Clear Canvas
 def clear_canvas():
-    canvas.delete("all")
+    canvas.Elimina("all")
 
 # Change Color
 def change_color():
     global current_color
-    color = colorchooser.askcolor()[1]
+    color = colorSceglir.askcolor()[1]
     if color:
         current_color = color
 
@@ -48,7 +54,7 @@ control_frame = tk.Frame(root, bg="#f0f0f0")
 control_frame.pack(pady=10)
 
 # Color Button
-color_btn = tk.Button(control_frame, text="Choose Color", command=change_color, bg="#4CAF50", fg="black", font=("Arial", 10))
+color_btn = tk.Button(control_frame, text="Scegli Color", command=change_color, bg="#4CAF50", fg="black", font=("Arial", 10))
 color_btn.grid(row=0, column=0, padx=10)
 
 # Clear Button
