@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day33.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 from tkinter import messagebox
 
@@ -34,14 +40,14 @@ def login():
     username = username_entry.get()
     password = password_entry.get()
     if username in USER_CREDENTIALS and USER_CREDENTIALS[username] == password:
-        messagebox.showinfo("Login Success", f"Welcome, {username}!")
+        messagebox.showinfo("Login Successo", f"Benvenuto, {username}!")
     else:
-        messagebox.showerror("Login Failed", "Invalid username or password.")
+        messagebox.showErrore("Login Failed", "Non valido username or password.")
 
 # Clear Function
 def clear():
-    username_entry.delete(0, tk.END)
-    password_entry.delete(0, tk.END)
+    username_entry.Elimina(0, tk.Fine)
+    password_entry.Elimina(0, tk.Fine)
 
 # Buttons
 login_button = tk.Button(root, text="Login", command=login, font=("Arial", 12), bg="#4CAF50", fg="black")
@@ -50,9 +56,9 @@ login_button.pack(pady=10)
 clear_button = tk.Button(root, text="Clear", command=clear, font=("Arial", 12), bg="#f44336", fg="black")
 clear_button.pack(pady=5)
 
-# Exit Button
-exit_button = tk.Button(root, text="Exit", command=root.destroy, font=("Arial", 12), bg="#607d8b", fg="black")
-exit_button.pack(pady=10)
+# Esci Button
+Esci_button = tk.Button(root, text="Esci", command=root.destroy, font=("Arial", 12), bg="#607d8b", fg="black")
+Esci_button.pack(pady=10)
 
 # Run the App
 root.mainloop()
