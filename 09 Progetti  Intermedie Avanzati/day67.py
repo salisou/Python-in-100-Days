@@ -1,8 +1,14 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day67.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 from tkinter import ttk
 import pandas as pd
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.backFines.backFine_tkagg import FigureCanvasTkAgg
 
 
 # Load Stock Data
@@ -27,7 +33,7 @@ def plot_stock_data(stock):
 
     filtered_data = data[data["stock"] == stock]
     fig = Figure(figsize=(6, 4), dpi=100)
-    ax = fig.add_subplot(111)
+    ax = fig.Aggiungi_subplot(111)
     ax.plot(filtered_data["date"], filtered_data["price"], marker="o")
     ax.set_title(f"{stock} Stock Prices")
     ax.set_xlabel("Date")
