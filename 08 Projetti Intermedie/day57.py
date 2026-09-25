@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day57.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 from PIL import Image
 
 def load_image(image_path, new_width=100):
@@ -29,22 +35,22 @@ def generate_ascii_art(image_path, new_width=100):
 	ascii_art = "\n".join([ascii_str[i:i + new_width] for i in range(0, len(ascii_str), new_width)])
 	return ascii_art
 
-def save_ascii_art(ascii_art, output_path):
+def Salva_ascii_art(ascii_art, output_path):
 	with open(output_path, "w") as file:
 		file.write(ascii_art)
 
 def main():
-    print("Welcome to the ASCII Art Generator!")
-    image_path = input("Enter the path to your image: ")
-    output_path = input("Enter the path to save the ASCII art (e.g., output.txt): ")
-    new_width = int(input("Enter the desired width of the ASCII art (default is 100): ") or 100)
+    print("Benvenuto to the ASCII Art Generator!")
+    image_path = input("Inserisci the path to Il tuo image: ")
+    output_path = input("Inserisci the path to Salva the ASCII art (e.g., output.txt): ")
+    new_width = int(input("Inserisci the desired width of the ASCII art (default is 100): ") or 100)
     
     try:
         ascii_art = generate_ascii_art(image_path, new_width)
-        save_ascii_art(ascii_art, output_path)
-        print(f"ASCII art generated and saved to {output_path}")
+        Salva_ascii_art(ascii_art, output_path)
+        print(f"ASCII art generated and Salvad to {output_path}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An Errore occurred: {e}")
 
 if __name__ == "__main__":
     main()
