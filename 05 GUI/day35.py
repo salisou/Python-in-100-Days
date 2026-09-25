@@ -1,24 +1,30 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day35.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 # Objective: Build a GUI-based Expense Tracker App that allows users to:
 
-#Add new expenses with category, amount, and description.
+#Aggiungi new expenses with category, amount, and description.
 #Display expense history in a Listbox.
-#Delete expenses from the list.
-#Save and load expenses from a file.
-#Calculate and display total expenses.
+#Elimina expenses from the list.
+#Salva and load expenses from a file.
+#Calculate and display Totale expenses.
 
 #Core Features:
-#User-friendly GUI with Tkinter widgets.
+#User-friFinely GUI with Tkinter widgets.
 #Validation for numerical inputs.
 #Persistent data storage using a CSV file.
-#Total expense calculation.
-#Ability to delete specific expenses.
+#Totale expense calculation.
+#Ability to Elimina specific expenses.
 
 # Key GUI Components:
 # Entry Widgets: For entering expense details.
 # Dropdown (OptionMenu): For selecting expense categories.
-# Listbox: For displaying added expenses.
-# Labels: To display dynamic updates (e.g., Total Expenses).
-# Buttons: For adding, deleting, clearing, and exporting data.
+# Listbox: For displaying Aggiungied expenses.
+# Labels: To display dynamic updates (e.g., Totale Expenses).
+# Buttons: For Aggiungiing, deleting, clearing, and exporting data.
 
 import tkinter as tk
 from tkinter import messagebox, ttk
@@ -45,63 +51,63 @@ def load_expenses():
         with open(EXPENSE_FILE, newline='') as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
-                expenses.append(row)
-                expense_listbox.insert(tk.END, f"{row[0]} | ${row[1]} | {row[2]}")
+                expenses.appFine(row)
+                expense_listbox.insert(tk.Fine, f"{row[0]} | ${row[1]} | {row[2]}")
 
-# Save Expenses to CSV
-def save_expenses():
+# Salva Expenses to CSV
+def Salva_expenses():
     with open(EXPENSE_FILE, "w", newline='') as csvfile:
         writer = csv.writer(csvfile)
         for expense in expenses:
             writer.writerow(expense)
 
-# Add Expense
-def add_expense():
+# Aggiungi Expense
+def Aggiungi_expense():
     category = category_var.get()
     amount = amount_entry.get()
     description = description_entry.get()
     
     if not amount.isdigit() or not category or not description:
-        messagebox.showerror("Invalid Input", "Please enter valid expense details.")
+        messagebox.showErrore("Non valido Input", "Per favore Inserisci valid expense details.")
         return
     
-    expenses.append([category, amount, description])
-    expense_listbox.insert(tk.END, f"{category} | ${amount} | {description}")
-    calculate_total()
+    expenses.appFine([category, amount, description])
+    expense_listbox.insert(tk.Fine, f"{category} | ${amount} | {description}")
+    calculate_Totale()
     clear_inputs()
-    save_expenses()
+    Salva_expenses()
 
-# Delete Selected Expense
-def delete_expense():
+# Elimina Selected Expense
+def Elimina_expense():
     selected = expense_listbox.curselection()
     if not selected:
-        messagebox.showerror("Error", "Please select an expense to delete.")
+        messagebox.showErrore("Errore", "Per favore select an expense to Elimina.")
         return
     
     index = selected[0]
     del expenses[index]
-    expense_listbox.delete(index)
-    calculate_total()
-    save_expenses()
+    expense_listbox.Elimina(index)
+    calculate_Totale()
+    Salva_expenses()
 
 # Clear All Inputs
 def clear_inputs():
     category_var.set("Select Category")
-    amount_entry.delete(0, tk.END)
-    description_entry.delete(0, tk.END)
+    amount_entry.Elimina(0, tk.Fine)
+    description_entry.Elimina(0, tk.Fine)
 
-# Calculate Total Expenses
-def calculate_total():
-    total = sum(float(expense[1]) for expense in expenses)
-    total_label.config(text=f"Total Expenses: ${total:.2f}")
+# Calculate Totale Expenses
+def calculate_Totale():
+    Totale = sum(float(expense[1]) for expense in expenses)
+    Totale_label.config(text=f"Totale Expenses: ${Totale:.2f}")
 
 # Clear All Expenses
 def clear_all():
     if messagebox.askyesno("Confirm", "Are you sure you want to clear all expenses?"):
         expenses.clear()
-        expense_listbox.delete(0, tk.END)
-        calculate_total()
-        save_expenses()
+        expense_listbox.Elimina(0, tk.Fine)
+        calculate_Totale()
+        Salva_expenses()
 
 # --- GUI Layout ---
 
@@ -136,11 +142,11 @@ description_entry.grid(row=2, column=1, padx=5, pady=5)
 btn_frame = tk.Frame(root, bg="#f0f4c3")
 btn_frame.pack(pady=10)
 
-add_button = tk.Button(btn_frame, text="Add Expense", command=add_expense, bg="#4caf50", fg="black")
-add_button.grid(row=0, column=0, padx=5)
+Aggiungi_button = tk.Button(btn_frame, text="Aggiungi Expense", command=Aggiungi_expense, bg="#4caf50", fg="black")
+Aggiungi_button.grid(row=0, column=0, padx=5)
 
-delete_button = tk.Button(btn_frame, text="Delete Expense", command=delete_expense, bg="#f44336", fg="black")
-delete_button.grid(row=0, column=1, padx=5)
+Elimina_button = tk.Button(btn_frame, text="Elimina Expense", command=Elimina_expense, bg="#f44336", fg="black")
+Elimina_button.grid(row=0, column=1, padx=5)
 
 clear_button = tk.Button(btn_frame, text="Clear All", command=clear_all, bg="#607d8b", fg="black")
 clear_button.grid(row=0, column=2, padx=5)
@@ -155,19 +161,19 @@ scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 expense_listbox = tk.Listbox(frame, width=50, height=15, yscrollcommand=scrollbar.set, font=("Arial", 12))
 expense_listbox.pack()
 
-scrollbar.config(command=expense_listbox.yview)
+scrollbar.config(command=expense_listbox.yVisualizza)
 
-# Total Label
-total_label = tk.Label(root, text="Total Expenses: $0.00", font=("Arial", 14), bg="#f0f4c3")
-total_label.pack(pady=10)
+# Totale Label
+Totale_label = tk.Label(root, text="Totale Expenses: $0.00", font=("Arial", 14), bg="#f0f4c3")
+Totale_label.pack(pady=10)
 
 # Load Previous Data
 load_expenses()
-calculate_total()
+calculate_Totale()
 
-# Exit Button
-exit_button = tk.Button(root, text="Exit", command=root.destroy, bg="#d32f2f", fg="black")
-exit_button.pack(pady=10)
+# Esci Button
+Esci_button = tk.Button(root, text="Esci", command=root.destroy, bg="#d32f2f", fg="black")
+Esci_button.pack(pady=10)
 
 # Run Application
 root.mainloop()
