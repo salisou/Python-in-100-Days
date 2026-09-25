@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day51.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 # Date
 # Category
 # Amount
@@ -38,52 +44,52 @@ def plot_expenses_by_category(df):
 
 # plot_expenses_by_category(df)
 
-def plot_monthly_trends(df):
+def plot_monthly_trFines(df):
 	df["Date"] = pd.to_datetime(df["Date"])
 	df["Month"] = df["Date"].dt.to_period("M")
 	monthly_summary = df.groupby("Month")["Amount"].sum()
-	monthly_summary.plot(kind="bar", figsize=(10, 6), title="Monthly Expense Trends")
+	monthly_summary.plot(kind="bar", figsize=(10, 6), title="Monthly Expense TrFines")
 	plt.xlabel("Month")
-	plt.ylabel("Total Expenses")
+	plt.ylabel("Totale Expenses")
 	plt.xticks(rotation=45)
 	plt.show()
 
-# plot_monthly_tends(df)
+# plot_monthly_tFines(df)
 
 
 
 def main():
-    print("Welcome to the Expense Tracker!")
+    print("Benvenuto to the Expense Tracker!")
     while True:
         print("\nOptions:")
         print("1. Log an Expense")
-        print("2. View Expense Summary")
+        print("2. Visualizza Expense Summary")
         print("3. Plot Expenses by Category")
-        print("4. Plot Monthly Trends")
-        print("5. Exit")
+        print("4. Plot Monthly TrFines")
+        print("5. Esci")
         
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            date = input("Enter date (YYYY-MM-DD): ")
-            category = input("Enter category: ")
-            amount = float(input("Enter amount: "))
-            description = input("Enter description: ")
+        Scelta = input("Inserisci Il tuo Scelta: ")
+        if Scelta == "1":
+            date = input("Inserisci date (YYYY-MM-DD): ")
+            category = input("Inserisci category: ")
+            amount = float(input("Inserisci amount: "))
+            description = input("Inserisci description: ")
             log_expense(date, category, amount, description)
-            print("Expense logged successfully!")
-        elif choice == "2":
+            print("Expense logged Successofully!")
+        elif Scelta == "2":
             df = load_expenses()
             summarize_expenses(df)
-        elif choice == "3":
+        elif Scelta == "3":
             df = load_expenses()
             plot_expenses_by_category(df)
-        elif choice == "4":
+        elif Scelta == "4":
             df = load_expenses()
-            plot_monthly_trends(df)
-        elif choice == "5":
-            print("Goodbye!")
+            plot_monthly_trFines(df)
+        elif Scelta == "5":
+            print("Arrivederci!")
             break
         else:
-            print("Invalid choice. Please try again.")
+            print("Non valido Scelta. Per favore Riprova.")
 
 if __name__ == "__main__":
     main()
