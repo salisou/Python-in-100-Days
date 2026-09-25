@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day58.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 
 # Initialize Timer variables
@@ -13,9 +19,9 @@ def countdown(seconds):
 		window.after(1, countdown, seconds - 1)
 	else:
 		timer_running = False
-		start_timer()
+		Inizio_timer()
 
-def start_timer():
+def Inizio_timer():
 	global session_count, timer_running
 	if not timer_running:
 		timer_running = True
@@ -44,7 +50,7 @@ window = tk.Tk()
 window.title("Pomodoro Timer")
 window.geometry("300x300")
 
-# Add a label for Timer
+# Aggiungi a label for Timer
 timer_label = tk.Label(window, text="25:00", font=("Arial", 40))
 timer_label.pack(pady=20)
 
@@ -52,9 +58,9 @@ timer_label.pack(pady=20)
 status_label = tk.Label(window, text="Ready", font=("Arial", 20))
 status_label.pack()
 
-# Start Button
-start_button = tk.Button(window, text="Start", command=start_timer, font=("Arial", 16))
-start_button.pack(side="left", padx=20)
+# Inizio Button
+Inizio_button = tk.Button(window, text="Inizio", command=Inizio_timer, font=("Arial", 16))
+Inizio_button.pack(side="left", padx=20)
 
 
 # Reset Button
