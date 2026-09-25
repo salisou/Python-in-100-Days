@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day53.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 
 board = [
@@ -12,9 +18,9 @@ window = tk.Tk()
 window.title("Tic-Tac-Toe")
 window.geometry("400x400")
 
-# Create Result Label
-result_label = tk.Label(window, text="Player X's Turn", font=("Arial", 16))
-result_label.grid(row=0, column=0, columnspan=3)
+# Create Risultato Label
+Risultato_label = tk.Label(window, text="Player X's Turn", font=("Arial", 16))
+Risultato_label.grid(row=0, column=0, columnspan=3)
 
 buttons = [[None for _ in range(3)] for _ in range(3)]
 
@@ -22,7 +28,7 @@ def reset_game():
     global current_player, board
     current_player = "X"
     board = [["", "", ""],["", "", ""],["", "", ""]]
-    result_label.config(text="Player X's Turn")
+    Risultato_label.config(text="Player X's Turn")
     for row in buttons:
         for button in row:
             button.config(text="", state="normal")
@@ -44,13 +50,13 @@ def on_click(row, col):
         # Check for Winner or Draw
         winner = check_winner(board)
         if winner:
-            result_label.config(text=f"Plater {winner} Wins!")
+            Risultato_label.config(text=f"Plater {winner} Wins!")
             disable_buttons()
         elif is_draw(board):
-            result_label.config(text="Its a Draw!")
+            Risultato_label.config(text="Its a Draw!")
         else:
             current_player = "0" if current_player == "X" else "X"
-            result_label.config(text=f"Player {current_player}'s Turn")
+            Risultato_label.config(text=f"Player {current_player}'s Turn")
 
 
 def create_board():
