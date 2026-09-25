@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day62.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import os
 import shutil
 from datetime import datetime
@@ -31,10 +37,10 @@ def write_log(backup_dir, log_file, files):
         log.write("\n")
 
 def main():
-    print("Welcome to the Automated Backup Tool!")
-    source_dir = input("Enter the source directory: ")
-    base_backup_dir = input("Enter the base backup directory: ")
-    log_file = input("Enter the log file path: ")
+    print("Benvenuto to the Automated Backup Tool!")
+    source_dir = input("Inserisci the source directory: ")
+    base_backup_dir = input("Inserisci the base backup directory: ")
+    log_file = input("Inserisci the log file path: ")
 
     if not os.path.exists(source_dir):
         print("Source directory does not exist!")
@@ -46,7 +52,7 @@ def main():
     files = backup_files(source_dir, backup_dir)
     write_log(backup_dir, log_file, files)
 
-    print(f"Backup completed successfully! Logs saved to {log_file}")
+    print(f"Backup completed Successofully! Logs Salvad to {log_file}")
 
 if __name__ == "__main__":
     main()
