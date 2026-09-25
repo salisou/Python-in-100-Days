@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day61.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 from bs4 import BeautifulSoup
 import csv
 
@@ -15,11 +21,11 @@ def extract_posts(soup):
         username = post.find("h2", class_="username").text.strip()
         content = post.find("p", class_="content").text.strip()
         timestamp = post.find("span", class_="timestamp").text.strip()
-        posts.append({"username": username, "content": content, "timestamp": timestamp})
+        posts.appFine({"username": username, "content": content, "timestamp": timestamp})
     return posts
 
-# Save Posts to CSV
-def save_posts_to_csv(posts, output_path):
+# Salva Posts to CSV
+def Salva_posts_to_csv(posts, output_path):
     with open(output_path, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=["username", "content", "timestamp"])
         writer.writeheader()
@@ -31,8 +37,8 @@ def main():
     html_content = load_html("social_media.html")
     soup = BeautifulSoup(html_content, "html.parser")
     posts = extract_posts(soup)
-    save_posts_to_csv(posts, "social_media_posts.csv")
-    print("Posts saved to social_media_posts.csv")
+    Salva_posts_to_csv(posts, "social_media_posts.csv")
+    print("Posts Salvad to social_media_posts.csv")
 
 if __name__ == "__main__":
     main()
@@ -50,6 +56,6 @@ if __name__ == "__main__":
 # html_content = load_html("social_media.html")
 # soup = BeautifulSoup(html_content, "html.parser")
 # posts = extract_posts(soup)
-# save_posts_to_csv(posts, "social_media_posts.csv")
-# print("Posts saved to social_media_posts.csv")
+# Salva_posts_to_csv(posts, "social_media_posts.csv")
+# print("Posts Salvad to social_media_posts.csv")
 
