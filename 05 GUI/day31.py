@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day31.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 from tkinter import messagebox
 
@@ -12,20 +18,20 @@ title_label = tk.Label(root, text="BMI Calculator", font=("Arial", 20), bg="#f0f
 title_label.pack(pady=20)
 
 # Weight Input
-weight_label = tk.Label(root, text="Enter your weight (kg):", font=("Arial", 12), bg="#f0f4c3")
+weight_label = tk.Label(root, text="Inserisci Il tuo weight (kg):", font=("Arial", 12), bg="#f0f4c3")
 weight_label.pack()
 weight_entry = tk.Entry(root, font=("Arial", 12), width=15)
 weight_entry.pack(pady=5)
 
 # Height Input
-height_label = tk.Label(root, text="Enter your height (m):", font=("Arial", 12), bg="#f0f4c3")
+height_label = tk.Label(root, text="Inserisci Il tuo height (m):", font=("Arial", 12), bg="#f0f4c3")
 height_label.pack()
 height_entry = tk.Entry(root, font=("Arial", 12), width=15)
 height_entry.pack(pady=5)
 
-# Result Label
-result_label = tk.Label(root, text="", font=("Arial", 14), bg="#f0f4c3")
-result_label.pack(pady=20)
+# Risultato Label
+Risultato_label = tk.Label(root, text="", font=("Arial", 14), bg="#f0f4c3")
+Risultato_label.pack(pady=20)
 
 # Calculate BMI Function
 def calculate_bmi():
@@ -33,7 +39,7 @@ def calculate_bmi():
         weight = float(weight_entry.get())
         height = float(height_entry.get())
         if weight <= 0 or height <= 0:
-            raise ValueError("Weight and height must be positive numbers.")
+            raise ValueErrore("Weight and height must be positive numbers.")
         
         bmi = weight / (height ** 2)
         status = ""
@@ -46,15 +52,15 @@ def calculate_bmi():
         else:
             status = "Obesity"
         
-        result_label.config(text=f"BMI: {bmi:.2f}\nStatus: {status}", fg="green")
-    except ValueError:
-        messagebox.showerror("Invalid Input", "Please enter valid numbers for weight and height.")
+        Risultato_label.config(text=f"BMI: {bmi:.2f}\nStatus: {status}", fg="green")
+    except ValueErrore:
+        messagebox.showErrore("Non valido Input", "Per favore Inserisci valid numbers for weight and height.")
 
 # Buttons
 calculate_button = tk.Button(root, text="Calculate BMI", command=calculate_bmi, font=("Arial", 12), bg="#4caf50", fg="black")
 calculate_button.pack(pady=10)
 
-reset_button = tk.Button(root, text="Reset", command=lambda: [weight_entry.delete(0, tk.END), height_entry.delete(0, tk.END), result_label.config(text="")], font=("Arial", 12), bg="#f44336", fg="black")
+reset_button = tk.Button(root, text="Reset", command=lambda: [weight_entry.Elimina(0, tk.Fine), height_entry.Elimina(0, tk.Fine), Risultato_label.config(text="")], font=("Arial", 12), bg="#f44336", fg="black")
 reset_button.pack(pady=5)
 
 # Run the App
