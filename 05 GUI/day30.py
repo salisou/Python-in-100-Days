@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day30.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 
 # Main Window
@@ -37,9 +43,9 @@ increment_button.pack(pady=10)
 reset_button = tk.Button(root, text="Reset", command=reset, font=("Arial", 14), bg="#f44336", fg="black")
 reset_button.pack(pady=10)
 
-# Exit Button
-exit_button = tk.Button(root, text="Exit", command=root.destroy, font=("Arial", 14), bg="#607d8b", fg="black")
-exit_button.pack(pady=20)
+# Esci Button
+Esci_button = tk.Button(root, text="Esci", command=root.destroy, font=("Arial", 14), bg="#607d8b", fg="black")
+Esci_button.pack(pady=20)
 
 # Run the App
 root.mainloop()
