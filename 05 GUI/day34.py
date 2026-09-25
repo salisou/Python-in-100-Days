@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day34.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 from tkinter import messagebox
 
@@ -8,23 +14,23 @@ root.geometry("400x500")
 root.configure(bg="#e3f2fd")
 
 # Functions
-def add_task():
+def Aggiungi_task():
     task = task_entry.get()
     if task.strip():
-        task_listbox.insert(tk.END, task)
-        task_entry.delete(0, tk.END)
+        task_listbox.insert(tk.Fine, task)
+        task_entry.Elimina(0, tk.Fine)
     else:
-        messagebox.showerror("Error", "Task cannot be empty.")
+        messagebox.showErrore("Errore", "Task cannot be empty.")
 
-def delete_task():
+def Elimina_task():
     selected = task_listbox.curselection()
     if selected:
-        task_listbox.delete(selected[0])
+        task_listbox.Elimina(selected[0])
     else:
-        messagebox.showerror("Error", "Select a task to delete.")
+        messagebox.showErrore("Errore", "Select a task to Elimina.")
 
 def clear_tasks():
-    task_listbox.delete(0, tk.END)
+    task_listbox.Elimina(0, tk.Fine)
 
 # Title Label
 title_label = tk.Label(root, text="To-Do List", font=("Arial", 24), bg="#e3f2fd")
@@ -38,11 +44,11 @@ task_entry.pack(pady=10)
 button_frame = tk.Frame(root, bg="#e3f2fd")
 button_frame.pack(pady=10)
 
-add_button = tk.Button(button_frame, text="Add Task", command=add_task, font=("Arial", 12), bg="#4caf50", fg="black")
-add_button.grid(row=0, column=0, padx=5)
+Aggiungi_button = tk.Button(button_frame, text="Aggiungi Task", command=Aggiungi_task, font=("Arial", 12), bg="#4caf50", fg="black")
+Aggiungi_button.grid(row=0, column=0, padx=5)
 
-delete_button = tk.Button(button_frame, text="Delete Task", command=delete_task, font=("Arial", 12), bg="#f44336", fg="black")
-delete_button.grid(row=0, column=1, padx=5)
+Elimina_button = tk.Button(button_frame, text="Elimina Task", command=Elimina_task, font=("Arial", 12), bg="#f44336", fg="black")
+Elimina_button.grid(row=0, column=1, padx=5)
 
 clear_button = tk.Button(button_frame, text="Clear Tasks", command=clear_tasks, font=("Arial", 12), bg="#607d8b", fg="black")
 clear_button.grid(row=0, column=2, padx=5)
@@ -57,11 +63,11 @@ scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 task_listbox = tk.Listbox(frame, width=50, height=15, yscrollcommand=scrollbar.set, font=("Arial", 12))
 task_listbox.pack(pady=10)
 
-scrollbar.config(command=task_listbox.yview)
+scrollbar.config(command=task_listbox.yVisualizza)
 
-# Exit Button
-exit_button = tk.Button(root, text="Exit", command=root.destroy, font=("Arial", 12), bg="#d32f2f", fg="black")
-exit_button.pack(pady=10)
+# Esci Button
+Esci_button = tk.Button(root, text="Esci", command=root.destroy, font=("Arial", 12), bg="#d32f2f", fg="black")
+Esci_button.pack(pady=10)
 
 # Run the App
 root.mainloop()
