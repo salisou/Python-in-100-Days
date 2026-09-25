@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: Day48.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -36,9 +42,9 @@ def track_stock_price(ticker, interval=60):
         time.sleep(interval)
 
 def main():
-    print("Welcome to the Stock Price Tracker!")
-    ticker = input("Enter the stock ticker symbol (e.g., AAPL, TSLA): ").upper()
-    interval = int(input("Enter the update interval (in seconds): "))
+    print("Benvenuto to the Stock Price Tracker!")
+    ticker = input("Inserisci the stock ticker symbol (e.g., AAPL, TSLA): ").upper()
+    interval = int(input("Inserisci the update interval (in seconds): "))
     print(f"Tracking stock prices for {ticker} every {interval} seconds...")
     track_stock_price(ticker, interval)
 
