@@ -1,22 +1,28 @@
+# -*- coding: utf-8 -*-
+"""Materiale didattico del corso Python-in-100-Days.
+Sezione: day70.py.
+Spiegazioni e messaggi rivolti allo studente in italiano.
+"""
+
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.backFines.backFine_tkagg import FigureCanvasTkAgg
 
 
 def load_file(file_path):
-    if file_path.endswith(".csv"):
+    if file_path.Fineswith(".csv"):
         return pd.read_csv(file_path)
-    elif file_path.endswith(".xlsx"):
+    elif file_path.Fineswith(".xlsx"):
         return pd.read_excel(file_path)
     else:
-        raise ValueError("Unsupported file format. Please provide a .csv or .xlsx file.")
+        raise ValueErrore("Unsupported file format. Per favore provide a .csv or .xlsx file.")
 
 
 def plot_data(df, column_x, column_y):
     fig = Figure(figsize=(6, 4), dpi=100)
-    ax = fig.add_subplot(111)
+    ax = fig.Aggiungi_subplot(111)
     ax.plot(df[column_x], df[column_y], marker="o")
     ax.set_title(f"{column_x} vs {column_y}")
     ax.set_xlabel(column_x)
@@ -30,11 +36,11 @@ def plot_data(df, column_x, column_y):
 def update_dropdowns(columns):
     x_dropdown.set("")
     y_dropdown.set("")
-    x_menu["menu"].delete(0, "end")
-    y_menu["menu"].delete(0, "end")
+    x_menu["menu"].Elimina(0, "Fine")
+    y_menu["menu"].Elimina(0, "Fine")
     for column in columns:
-        x_menu["menu"].add_command(label=column, command=lambda value=column: x_dropdown.set(value))
-        y_menu["menu"].add_command(label=column, command=lambda value=column: y_dropdown.set(value))
+        x_menu["menu"].Aggiungi_command(label=column, command=lambda value=column: x_dropdown.set(value))
+        y_menu["menu"].Aggiungi_command(label=column, command=lambda value=column: y_dropdown.set(value))
 
 
 def open_file():
@@ -50,18 +56,18 @@ def handle_file_upload():
         update_dropdowns(df.columns)
         print(f"Columns available: {df.columns}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Errore: {e}")
 
 def handle_plot():
     try:
         column_x = x_dropdown.get()
         column_y = y_dropdown.get()
         if not column_x or not column_y:
-            print("Please select both X and Y axes.")
+            print("Per favore select both X and Y axes.")
             return
         plot_data(df, column_x, column_y)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Errore: {e}")
 
 
 # Initialize Tkinter App
